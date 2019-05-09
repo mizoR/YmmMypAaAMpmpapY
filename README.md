@@ -1,24 +1,42 @@
-# README
+# Mctsagsh
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Quickstart
 
-Things you may want to cover:
+1. Build app
+    ```sh
+    docker-compose build
+    ```
+2. Migrate DB
+    ```sh
+    docker-compose run web rails db:environment:set RAILS_ENV=development db:create db:migrate
+    ```
+3. Run app
+    ```sh
+    docker-compose up
+    ```
+4. Open http://localhost:3000
 
-* Ruby version
+🍻
 
-* System dependencies
+## Test
 
-* Configuration
+1. Build app
+    ```sh
+    docker-compose build
+    ```
+2. Migrate DB
+    ```sh
+    docker-compose run web rails db:environment:set RAILS_ENV=test db:create db:migrate
+    ```
+3. Run test
+    ```sh
+    docker-compose run web rspec ./spec
+    ```
 
-* Database creation
+🍻
 
-* Database initialization
+## API
 
-* How to run the test suite
+You can see API document with http://localhost:3000/apipie
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+🍻

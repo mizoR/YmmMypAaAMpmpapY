@@ -9,17 +9,19 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
-
-# Ignore uploaded files in development
 /storage/*
+/tmp/*
+/volumes/*
+!/log/.keep
 !/storage/.keep
+!/tmp/.keep
+!/volumes/.keep
 
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/doc/apidoc*
 
 /vendor/bundle

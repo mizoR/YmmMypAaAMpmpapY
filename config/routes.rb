@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  apipie
+  namespace :v0 do
+    resources :users, only: [:create]
+
+    resources :tokens, only: [:create]
+
+    resources :products, only: [:index]
+
+    namespace :my do
+      resources :products
+
+      resources :placing_orders, only: [:index, :show, :create]
+
+      resources :received_orders, only: [:index, :show]
+    end
+  end
 end

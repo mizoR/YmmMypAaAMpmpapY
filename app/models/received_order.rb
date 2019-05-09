@@ -1,0 +1,2 @@
+class ReceivedOrder < Order
+end
