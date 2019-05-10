@@ -13,7 +13,9 @@ class User < ApplicationRecord
 
   after_create :create_wallet!
 
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email,
+    uniqueness: true,
+    format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def place_order!(placing_order, product)
     wallet.with_lock do
