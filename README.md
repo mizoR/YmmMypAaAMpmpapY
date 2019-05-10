@@ -8,7 +8,8 @@
     ```
 2. Migrate DB
     ```sh
-    docker-compose run web rails db:environment:set RAILS_ENV=development db:create db:migrate
+    docker-compose run web rails db:create
+    docker-compose run web rails db:environment:set RAILS_ENV=development db:migrate
     ```
 3. Run app
     ```sh
@@ -26,7 +27,8 @@
     ```
 2. Migrate DB
     ```sh
-    docker-compose run web rails db:environment:set RAILS_ENV=test db:create db:migrate
+    docker-compose run web rails db:create
+    docker-compose run web rails db:environment:set RAILS_ENV=test db:migrate
     ```
 3. Run test
     ```sh
