@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2019_04_27_011829) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "orderer_id", default: 0, null: false
-    t.bigint "order_receiver_id", default: 0, null: false
-    t.string "product_name", default: "", null: false
-    t.integer "product_price", default: 0, null: false
-    t.string "orderer_name", default: "", null: false
-    t.string "orderer_address", default: "", null: false
-    t.integer "order_quantity", default: 0, null: false
+    t.bigint "orderer_id", null: false
+    t.bigint "order_receiver_id", null: false
+    t.string "product_name", null: false
+    t.integer "product_price", null: false
+    t.string "orderer_name", null: false
+    t.string "orderer_address", null: false
+    t.integer "order_quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_receiver_id"], name: "index_orders_on_order_receiver_id"
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2019_04_27_011829) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "owner_id", default: 0, null: false
-    t.string "name", default: "", null: false
-    t.integer "price", default: 0, null: false
-    t.integer "stock_quantity", default: 0, null: false
+    t.bigint "owner_id", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "stock_quantity", null: false
     t.integer "version", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_011829) do
   end
 
   create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", default: 0, null: false
-    t.string "access_token", default: "", null: false
+    t.bigint "user_id", null: false
+    t.string "access_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["access_token"], name: "index_tokens_on_access_token", unique: true
@@ -68,16 +68,16 @@ ActiveRecord::Schema.define(version: 2019_04_27_011829) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "password_digest", default: "", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "wallets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", default: 0, null: false
-    t.integer "point", default: 10000, null: false
+    t.bigint "user_id", null: false
+    t.integer "point", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_wallets_on_user_id", unique: true

@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_many :received_orders, foreign_key: :order_receiver_id, class_name: 'ReceivedOrder', dependent: :destroy
 
-  after_create :create_wallet!
+  after_create :ensure_user_has_a_wallet!
 
   validates :email,
     uniqueness: true,
@@ -42,5 +42,11 @@ class User < ApplicationRecord
 
       placing_order
     end
+  end
+
+  private
+
+  def ensure_user_has_a_wallet!
+    create_wallet!(point: 10_000)
   end
 end
